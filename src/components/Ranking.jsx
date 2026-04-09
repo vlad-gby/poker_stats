@@ -27,11 +27,11 @@ export default function Ranking({ data, onSelectPlayer }) {
   const { playerStats, minGamesForRanking, currency, totalChipError, gamesWithError } = data
 
   const [sortKey, setSortKey] = useState('avgDelta')
-  const [sortDir, setSortDir] = useState(-1) // -1 = desc
+  const [sortDir, setSortDir] = useState(1) // 1 = desc (biggest first)
 
   function handleSort(key) {
     if (key === sortKey) setSortDir(d => -d)
-    else { setSortKey(key); setSortDir(-1) }
+    else { setSortKey(key); setSortDir(1) }
   }
 
   const visible = playerStats.filter(p => p.visible)
@@ -48,7 +48,7 @@ export default function Ranking({ data, onSelectPlayer }) {
   const SortIcon = ({ col }) => {
     if (!col.sortable) return null
     if (col.key !== sortKey) return <span className="ml-1 opacity-30">↕</span>
-    return <span className="ml-1 text-amber-300">{sortDir === -1 ? '↓' : '↑'}</span>
+    return <span className="ml-1 text-amber-300">{sortDir === 1 ? '↓' : '↑'}</span>
   }
 
   const Row = ({ player, rank, dimmed }) => (
