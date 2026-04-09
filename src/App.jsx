@@ -44,8 +44,19 @@ export default function App() {
   return (
     <div className="min-h-dvh bg-warm-950">
       {/* Header */}
-      <header className="bg-warm-900 border-b border-warm-700 shadow-lg">
-        <div className="max-w-6xl mx-auto px-4 py-5 flex items-center gap-3">
+      <header className="relative border-b border-warm-700 shadow-lg overflow-hidden">
+        {/* Blurred cards background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-110"
+          style={{
+            backgroundImage: `url(${import.meta.env.BASE_URL}photos/cards%20for%20the%20bg.jpeg)`,
+            filter: 'blur(6px)',
+          }}
+        />
+        {/* Dark warm overlay */}
+        <div className="absolute inset-0 bg-warm-950/80" />
+        {/* Content */}
+        <div className="relative max-w-6xl mx-auto px-4 py-6 flex items-center gap-3">
           <span className="text-3xl">🃏</span>
           <div>
             <h1 className="text-xl font-bold text-amber-200 leading-tight">{data.clubName}</h1>
