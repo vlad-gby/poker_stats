@@ -27,22 +27,26 @@ export default function Avatar({ name, photo, size = 'md', className = '' }) {
 
   const base = `rounded-full flex items-center justify-center font-bold shrink-0 overflow-hidden ring-2 ring-warm-700 ${sizes[size]} ${className}`
 
-  if (photo && !imgError) {
-    return (
-      <div className={base}>
-        <img
-          src={`${import.meta.env.BASE_URL}${photo}`}
-          alt={name}
-          className="w-full h-full object-cover"
-          onError={() => setImgError(true)}
-        />
-      </div>
-    )
-  }
+  const PLACEHOLDER = `${import.meta.env.BASE_URL}photos/placeholder.jpg`
+
+  // Use player photo → placeholder → initials fallback
+  const src = photo && !imgError
+    ? `${import.meta.env.BASE_URL}${photo}`
+    : PLACEHOLDER
 
   return (
-    <div className={`${base} ${colorFor(name)} text-white`}>
-      {initials(name)}
+    <div className={base}>
+      <img
+        src={src}
+        alt={name}
+        className="w-full h-full object-cover"
+        onError={e => {
+          // If placeholder also fails, swap to initials div
+          e.target.style.display = 'none'
+          e.target.parentElement.classList.add(colorFor(name), 'text-white')
+          e.target.parentElement.textContent = initials(name)
+        }}
+      />
     </div>
   )
 }
