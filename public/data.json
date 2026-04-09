@@ -5,11 +5,11 @@
   "minGamesForRanking": 3,
   "players": {
     "Влад": { "photo": "photos/влад.png", "visible": true },
-    "Ярослав": { "photo": "photos/yaroslav.jpg", "visible": false },
+    "Ярослав": { "photo": "photos/yaroslav.jpg", "visible": true },
     "Маша": { "photo": "photos/masha.jpg", "visible": false },
     "Женя": { "photo": "photos/женя.png", "visible": true },
     "Віталій": { "photo": "photos/vitaliy.jpg", "visible": false },
-    "Яра": { "photo": "photos/yara.jpg", "visible": false },
+    "Яра": { "photo": "photos/yara.jpg", "visible": true },
     "Аріна": { "photo": "photos/arina.jpg", "visible": false },
     "Аліна": { "photo": "photos/аліна.png", "visible": true },
     "Євгеній": { "photo": "photos/євгеній.png", "visible": true },
