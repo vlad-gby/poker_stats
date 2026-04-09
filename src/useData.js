@@ -18,6 +18,13 @@ export function useData() {
   return { data, loading, error }
 }
 
+function monthsSince(dateStr) {
+  if (!dateStr) return 0
+  const first = new Date(dateStr)
+  const now = new Date()
+  return (now.getFullYear() - first.getFullYear()) * 12 + (now.getMonth() - first.getMonth())
+}
+
 function derive(raw) {
   const { buyIn, currency, clubName, minGamesForRanking, players, games } = raw
 
@@ -53,7 +60,7 @@ function derive(raw) {
       games: 0,
       totalDelta: 0,
       deltas: [], // [{date, delta}]
-      monthsSet: new Set(),
+      firstGame: null,
       best: -Infinity,
       worst: Infinity,
     }
@@ -70,7 +77,7 @@ function derive(raw) {
           games: 0,
           totalDelta: 0,
           deltas: [],
-          monthsSet: new Set(),
+          firstGame: null,
           best: -Infinity,
           worst: Infinity,
         }
@@ -79,8 +86,7 @@ function derive(raw) {
       ps.games += 1
       ps.totalDelta += p.delta
       ps.deltas.push({ date: game.date, delta: p.delta })
-      const month = game.date.slice(0, 7)
-      ps.monthsSet.add(month)
+      if (!ps.firstGame) ps.firstGame = game.date
       if (p.delta > ps.best) ps.best = p.delta
       if (p.delta < ps.worst) ps.worst = p.delta
     }
@@ -95,7 +101,7 @@ function derive(raw) {
     totalDelta: ps.totalDelta,
     avgDelta: ps.games > 0 ? ps.totalDelta / ps.games : 0,
     deltas: ps.deltas,
-    monthsActive: ps.monthsSet.size,
+    monthsActive: monthsSince(ps.firstGame),
     best: ps.games > 0 ? ps.best : 0,
     worst: ps.games > 0 ? ps.worst : 0,
   }))
