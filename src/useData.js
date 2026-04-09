@@ -103,7 +103,7 @@ function derive(raw) {
   // Cumulative delta series for line chart (visible players only)
   const visiblePlayers = finalStats.filter(p => p.visible && p.games > 0)
 
-  const cumulativeData = buildCumulativeSeries(sortedGames, visiblePlayers)
+  const cumulativeData = buildCumulativeSeries(enrichedGames, visiblePlayers)
 
   // Total chip errors
   const totalChipError = enrichedGames.reduce((s, g) => s + Math.abs(g.chipError), 0)
