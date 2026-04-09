@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {
-  LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid,
-  Tooltip, ResponsiveContainer, Legend, ReferenceLine,
+  LineChart, Line, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid,
+  Tooltip, ResponsiveContainer, ReferenceLine,
 } from 'recharts'
 import Avatar from './Avatar'
 
@@ -113,7 +113,7 @@ function PlayerBarChart({ playerStats, selectedPlayer, currency }) {
           label={false}
         >
           {chartData.map((entry, i) => (
-            <rect key={i} fill={entry.delta >= 0 ? '#4ade80' : '#f87171'} />
+            <Cell key={i} fill={entry.delta >= 0 ? '#4ade80' : '#f87171'} />
           ))}
         </Bar>
       </BarChart>
