@@ -15,8 +15,11 @@ function initials(name) {
   return name.slice(0, 2).toUpperCase()
 }
 
+const PLACEHOLDER = 'photos/placeholder.jpg'
+
 export default function Avatar({ name, photo, size = 'md', className = '' }) {
-  const [imgError, setImgError] = useState(false)
+  // 'photo' → 'placeholder' → 'initials'
+  const [stage, setStage] = useState(photo ? 'photo' : 'placeholder')
 
   const sizes = {
     sm: 'w-8 h-8 text-xs',
@@ -25,14 +28,19 @@ export default function Avatar({ name, photo, size = 'md', className = '' }) {
     xl: 'w-20 h-20 text-xl',
   }
 
-  const base = `rounded-full flex items-center justify-center font-bold shrink-0 overflow-hidden ring-2 ring-warm-700 ${sizes[size]} ${className}`
+  const base = `rounded-full shrink-0 overflow-hidden ring-2 ring-warm-700 ${sizes[size]} ${className}`
 
-  const PLACEHOLDER = `${import.meta.env.BASE_URL}photos/placeholder.jpg`
+  if (stage === 'initials') {
+    return (
+      <div className={`${base} flex items-center justify-center font-bold ${colorFor(name)} text-white`}>
+        {initials(name)}
+      </div>
+    )
+  }
 
-  // Use player photo → placeholder → initials fallback
-  const src = photo && !imgError
+  const src = stage === 'photo'
     ? `${import.meta.env.BASE_URL}${photo}`
-    : PLACEHOLDER
+    : `${import.meta.env.BASE_URL}${PLACEHOLDER}`
 
   return (
     <div className={base}>
@@ -40,12 +48,7 @@ export default function Avatar({ name, photo, size = 'md', className = '' }) {
         src={src}
         alt={name}
         className="w-full h-full object-cover"
-        onError={e => {
-          // If placeholder also fails, swap to initials div
-          e.target.style.display = 'none'
-          e.target.parentElement.classList.add(colorFor(name), 'text-white')
-          e.target.parentElement.textContent = initials(name)
-        }}
+        onError={() => setStage(stage === 'photo' ? 'placeholder' : 'initials')}
       />
     </div>
   )
