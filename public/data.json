@@ -4,16 +4,16 @@
   "clubName": "Tsukr Poker Club",
   "minGamesForRanking": 3,
   "players": {
-    "Влад": { "photo": null, "visible": true },
-    "Ярослав": { "photo": null, "visible": true },
-    "Маша": { "photo": null, "visible": true },
-    "Женя": { "photo": null, "visible": true },
-    "Віталій": { "photo": null, "visible": true },
-    "Яра": { "photo": null, "visible": true },
-    "Аріна": { "photo": null, "visible": true },
-    "Аліна": { "photo": null, "visible": true },
-    "Євгеній": { "photo": null, "visible": true },
-    "Дмитро": { "photo": null, "visible": false }
+    "Влад": { "photo": "photos/vlad.jpg", "visible": true },
+    "Ярослав": { "photo": "photos/yaroslav.jpg", "visible": true },
+    "Маша": { "photo": "photos/masha.jpg", "visible": true },
+    "Женя": { "photo": "photos/zhenya.jpg", "visible": true },
+    "Віталій": { "photo": "photos/vitaliy.jpg", "visible": true },
+    "Яра": { "photo": "photos/yara.jpg", "visible": true },
+    "Аріна": { "photo": "photos/arina.jpg", "visible": true },
+    "Аліна": { "photo": "photos/alina.jpg", "visible": true },
+    "Євгеній": { "photo": "photos/evgeniy.jpg", "visible": true },
+    "Дмитро": { "photo": "photos/dmytro.jpg", "visible": false }
   },
   "games": [
     {
