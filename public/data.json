@@ -14,6 +14,6 @@
     "Аліна": { "photo": "photos/аліна.png", "visible": true },
     "Євгеній": { "photo": "photos/євгеній.png", "visible": true },
     "Дмитро": { "photo": "photos/dmytro.jpg", "visible": false },
-    "Альона": { "photo": "photos/альона.jpg", "visible": false }
+    "Альона": { "photo": "photos/альона.png", "visible": true }
   }
 }
