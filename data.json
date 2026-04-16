@@ -5,41 +5,15 @@
   "minGamesForRanking": 3,
   "players": {
     "Влад": { "photo": "photos/влад.png", "visible": true },
-    "Ярослав": { "photo": "photos/yaroslav.jpg", "visible": false },
-    "Маша": { "photo": "photos/masha.jpg", "visible": false },
+    "Ярослав": { "photo": "photos/yaroslav.jpg", "visible": true },
+    "Маша": { "photo": "photos/masha.jpg", "visible": true },
     "Женя": { "photo": "photos/женя.png", "visible": true },
     "Віталій": { "photo": "photos/vitaliy.jpg", "visible": false },
-    "Яра": { "photo": "photos/yara.jpg", "visible": false },
+    "Яра": { "photo": "photos/yara.jpg", "visible": true },
     "Аріна": { "photo": "photos/arina.jpg", "visible": false },
     "Аліна": { "photo": "photos/аліна.png", "visible": true },
     "Євгеній": { "photo": "photos/євгеній.png", "visible": true },
-    "Дмитро": { "photo": "photos/dmytro.jpg", "visible": false }
-  },
-  "games": [
-    {
-      "date": "2026-03-05",
-      "photo": null,
-      "chips": { "Віталій": 170, "Дмитро": 355, "Ярослав": 730, "Маша": 115, "Влад": 735, "Женя": 620 }
-    },
-    {
-      "date": "2026-03-12",
-      "photo": null,
-      "chips": { "Маша": 160, "Женя": 410, "Віталій": 465, "Ярослав": 480, "Яра": 460, "Влад": 725 }
-    },
-    {
-      "date": "2026-03-19",
-      "photo": null,
-      "chips": { "Маша": 420, "Яра": 525, "Ярослав": 290, "Віталій": 405, "Женя": 175, "Влад": 920, "Аріна": 310, "Аліна": 565 }
-    },
-    {
-      "date": "2026-03-26",
-      "photo": null,
-      "chips": { "Аліна": 0, "Влад": 415, "Маша": 855, "Євгеній": 735, "Женя": 675, "Ярослав": 20 }
-    },
-    {
-      "date": "2026-04-02",
-      "photo": null,
-      "chips": { "Влад": 645, "Євгеній": 700, "Маша": 565, "Віталій": 565, "Женя": 200, "Яра": 305, "Ярослав": 170 }
-    }
-  ]
+    "Дмитро": { "photo": "photos/dmytro.jpg", "visible": false },
+    "Альона": { "photo": "photos/альона.jpg", "visible": false }
+  }
 }
