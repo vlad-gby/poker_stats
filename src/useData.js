@@ -8,9 +8,11 @@ export function useData() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch(`${BASE}data.json`)
-      .then(r => r.json())
-      .then(raw => setData(derive(raw)))
+    Promise.all([
+      fetch(`${BASE}data.json`).then(r => r.json()),
+      fetch(`${BASE}games.json`).then(r => r.json()),
+    ])
+      .then(([config, games]) => setData(derive({ ...config, games })))
       .catch(setError)
       .finally(() => setLoading(false))
   }, [])
