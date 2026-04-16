@@ -6,7 +6,7 @@
   "players": {
     "Влад": { "photo": "photos/влад.png", "visible": true },
     "Ярослав": { "photo": "photos/yaroslav.jpg", "visible": true },
-    "Маша": { "photo": "photos/masha.jpg", "visible": true },
+    "Маша": { "photo": "photos/маша.png", "visible": true },
     "Женя": { "photo": "photos/женя.png", "visible": true },
     "Віталій": { "photo": "photos/vitaliy.jpg", "visible": false },
     "Яра": { "photo": "photos/yara.jpg", "visible": true },
