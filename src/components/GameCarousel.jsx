@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Avatar from './Avatar'
 
 function fmt(n, currency) {
@@ -12,41 +11,22 @@ function deltaColor(n) {
   return 'text-warm-300'
 }
 
-function formatDate(dateStr) {
-  const d = new Date(dateStr)
-  return d.toLocaleDateString('uk-UA', { day: 'numeric', month: 'long', year: 'numeric' })
-}
-
 function GameCard({ game, index, total, currency, players, onSelectPlayer }) {
-  const [imgError, setImgError] = useState(false)
-
   const hasError = game.chipError !== 0
   const absError = Math.abs(game.chipError)
+  const [year, month, day] = game.date.split('-')
 
   return (
     <div className="shrink-0 w-72 sm:w-80 bg-warm-800 rounded-3xl shadow-xl border border-warm-700 overflow-hidden flex flex-col">
-      {/* Photo or placeholder */}
-      <div className="relative h-40 bg-warm-900 flex items-center justify-center overflow-hidden">
-        {game.photo && !imgError ? (
-          <img
-            src={`${import.meta.env.BASE_URL}${game.photo}`}
-            alt={`Гра ${index + 1}`}
-            className="w-full h-full object-cover"
-            onError={() => setImgError(true)}
-          />
-        ) : (
-          <div className="flex flex-col items-center gap-2 text-warm-600">
-            <span className="text-4xl">🃏</span>
-            <span className="text-sm">Фото відсутнє</span>
-          </div>
-        )}
+      {/* Date display */}
+      <div className="relative h-40 bg-linear-to-br from-warm-950 to-warm-800 flex flex-col items-center justify-center overflow-hidden select-none">
+        <span className="absolute top-3 left-4 text-warm-700/50 text-2xl">♠</span>
+        <span className="absolute bottom-3 right-4 text-warm-700/50 text-2xl">♦</span>
+        <div className="text-7xl font-bold tabular-nums text-amber-100 leading-none tracking-tight">{day}</div>
+        <div className="text-lg font-semibold tabular-nums text-amber-400/70 tracking-widest mt-1">{month}.{year}</div>
         {/* Chip error badge */}
         <div className={`absolute top-2 right-2 px-2.5 py-1 rounded-full text-xs font-bold shadow ${hasError ? 'bg-yellow-500/90 text-yellow-950' : 'bg-green-500/90 text-green-950'}`}>
           {hasError ? `±${absError} фішок` : '✓ точно'}
-        </div>
-        {/* Date badge */}
-        <div className="absolute bottom-2 left-2 bg-warm-950/80 text-warm-200 text-xs px-2 py-1 rounded-lg backdrop-blur-sm">
-          {formatDate(game.date)}
         </div>
       </div>
 
