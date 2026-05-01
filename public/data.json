@@ -8,7 +8,7 @@
     "Ярослав": { "photo": "photos/yaroslav.jpg", "visible": true },
     "Маша": { "photo": "photos/маша.png", "visible": true },
     "Женя": { "photo": "photos/женя.png", "visible": true },
-    "Віталій": { "photo": "photos/vitaliy.jpg", "visible": false },
+    "Віталій": { "photo": "photos/vitaliy.jpg", "visible": true },
     "Яра": { "photo": "photos/yara.jpg", "visible": true },
     "Аріна": { "photo": "photos/arina.jpg", "visible": false },
     "Аліна": { "photo": "photos/аліна.png", "visible": true },
